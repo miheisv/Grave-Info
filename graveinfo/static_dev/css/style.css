@@ -1,0 +1,441 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+    /* --bg-main: #1a181b; */
+    --bg-main: #333333;
+    --bg-header: rgb(15, 15, 15);
+}
+
+@media (min-width: 768px) {
+    .container {
+        width: 720px;
+    }
+} 
+@media (min-width: 992px) {
+    .container {
+        width: 700px;
+    }
+    #intro-example {
+        height: 600px;
+    }
+}
+
+@media (max-width: 992px) {
+    .content {
+        flex-direction: column;
+    }
+}
+@media (min-width: 1200px) {
+    .container {
+        width: 1200px;
+    }
+}
+
+body {
+    background: var(--bg-main);
+    color: #000000;
+    padding-top: 75px;
+    font-family: 'open sans', serif;
+}
+
+a:hover, a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.header{
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 100;
+    background-color: var(--bg-header);
+    backdrop-filter: blur(5px);
+    font-size: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.signup {
+    text-align: center;
+    text-decoration: none;
+    width: 150px;
+    height: 50px;
+    padding: 10px;
+    border: 1px solid #fff6;
+    border-radius: 20px;
+    background: rgb(255,135,0);
+    background: linear-gradient(150deg, rgba(255,135,0,1) 0%, rgba(255,0,199,1) 100%);
+    box-shadow: 0px 2px 15px rgba(255, 200, 0, 0.5);
+    
+    transition: all 0.2s ease;
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.signup:hover {
+    transform: scale(1.2) rotate(-2deg);
+    box-shadow: 0px 2px 30px rgba(255, 200, 0, 0.6);
+}
+
+.posts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.post-min {
+    width: 100%;
+    
+    border-radius: 25px;
+    min-width: 400px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(254, 222, 255, 0.2);
+    background-color: rgba(15, 15, 15, 0.9);
+    padding: 5px;
+    margin-bottom: 80px;
+}
+
+.post-min:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 40px rgba(62, 0, 143, 0.461);
+}
+
+.post-about {
+    position: relative;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.post-author-avatar {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.author {
+    display: flex;
+    font-size: 16px;
+    align-items: center;
+}
+
+.author-avatar {
+    height: 1em;
+}
+
+.author-username {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.4);
+}
+
+.author-username:hover {
+    text-decoration: underline;
+    color: #fff;
+}
+
+.author-username::before {
+    content: '@';
+}
+
+.post-desc {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 20px;
+}
+
+pre {
+    margin-bottom: 0;
+    height: 100%;
+}
+
+.viewfull {
+    text-align: center;
+    height: auto;
+    /* position: absolute; */
+    bottom: 0;
+}
+
+.viewfull-btn {
+    display: inline-block;
+    background: rgb(204, 0, 255);
+    box-shadow: 0 0 10px rgba(185, 13, 119, 0.288);
+    background: rgb(166, 0, 255);
+    padding: 0 10px;
+    margin-top: 15px;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.viewfull-btn:hover {
+    transform: scale(1.05);
+}
+
+
+.userinfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bio {
+    font-size: 26px;
+    text-align: center;
+    border: 1px solid #fff6;
+    border-radius: 20px;
+    padding: 10px;
+    margin-top: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.username {
+    font-size: 40px;
+    font-weight: bold;
+    border-bottom: 3px solid rgb(255, 255, 255);
+}
+
+.avatar {
+    width: 250px;
+    margin: 20px;
+}
+
+.card-profile {
+    max-width: 500px;
+    min-width: 200px;
+}
+
+.card-body {
+    color:rgb(255, 255, 255);
+}
+
+.post {
+    margin-bottom: 30px;
+}
+
+code.hljs {
+    border-radius: 20px;
+    border: 1px solid #fff2;
+    height: 100%;
+}
+
+.btn-send {
+    background: rgb(255, 0, 55);
+    background: linear-gradient(150deg, rgb(255, 0, 55) 0%, rgb(255, 125, 39) 100%);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    box-shadow: 0 0 10px #fff4;
+    transition: 0.2s ease;
+}
+
+.btn-send:hover {
+    transform: scale(1.1);
+}
+
+.dark-input {
+    background-color: #222;
+    border: 1px solid #fff4;
+    color: #ccc;
+}
+
+.dark-input:focus {
+    background-color: #222;
+    color: #ccc;
+}
+
+.userrow {
+    position: fixed;
+    width: inherit;
+}
+
+.card-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 4rem;
+    padding: 40px;
+    width: 400px;
+    border-radius: 20px;
+    border: 1px solid #fff2;
+    transition: 0.2s ease;
+    box-shadow: 0px 2px 20px rgba(255, 255, 255, 0.1)
+}
+
+.card-form:hover {
+    transform: scale(1.04);
+    box-shadow: 0px 2px 50px rgba(255, 255, 255, 0.15)
+}
+
+h2 {
+    text-align: center;
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.minicard {
+    border-radius: 3px;
+    padding: 1px 10px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.lang {
+    background: rgb(205, 27, 77);
+}
+
+.tag {
+    background: rgb(205, 27, 77);
+}
+
+.tag::before {
+    content: "#";
+}
+
+.header-avatar {
+    object-fit: cover;
+    width: 50px;
+    height: 50px;
+}
+.anchor {
+    display: block;
+    height: 92px;
+    margin-top: -92px;
+    visibility: hidden;
+}
+
+
+.like-btn {
+    background-color: rgb(113, 132, 108);
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    padding: 6px 10px;
+    font-weight: 700;
+    box-shadow: none;
+    transition: all 0.2s ease;
+    border-radius: 5px;
+}
+
+.like-btn:hover {
+    transform: scale(1.1)
+}
+
+.liked button {
+    box-shadow: 0 0 10px rgba(34, 255, 0, 0.477);
+    background-color: #22c55e;
+}
+
+/* Default height for small devices */
+.intro-example {
+    height: 400px;
+}
+
+.bd-placeholder-img {
+font-size: 1.125rem;
+text-anchor: middle;
+-webkit-user-select: none;
+-moz-user-select: none;
+user-select: none;
+}
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
+}
+
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+
+/* Carousel base class */
+  /* Since positioning the image, we need to help out the caption */
+  .carousel-caption {
+    bottom: 3rem;
+    z-index: 10;
+  }
+  
+  /* Declare heights because of positioning of img element */
+  .carousel-item {
+    height: 32rem;
+  }
+  .carousel-item > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    height: 32rem;
+  }
+  
+  
+  /* MARKETING CONTENT
+  -------------------------------------------------- */
+  
+  /* Center align the text within the three columns below the carousel */
+  .marketing .col-lg-4 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  .marketing h2 {
+    font-weight: 400;
+  }
+  /* rtl:begin:ignore */
+  .marketing .col-lg-4 p {
+    margin-right: .75rem;
+    margin-left: .75rem;
+  }
+  /* rtl:end:ignore */
+  
+  
+  /* Featurettes
+  ------------------------- */
+  
+  .featurette-divider {
+    margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+  }
+  
+  /* Thin out the marketing headings */
+  .featurette-heading {
+    font-weight: 300;
+    line-height: 1;
+    /* rtl:remove */
+    letter-spacing: -.05rem;
+  }
+  
+  
+  /* RESPONSIVE CSS
+  -------------------------------------------------- */
+  
+  @media (min-width: 40em) {
+    /* Bump up size of carousel content */
+    .carousel-caption p {
+      margin-bottom: 1.25rem;
+      font-size: 1.25rem;
+      line-height: 1.4;
+    }
+  
+    .featurette-heading {
+      font-size: 50px;
+    }
+  }
+  
+  @media (min-width: 62em) {
+    .featurette-heading {
+      margin-top: 7rem;
+    }
+  }
+
+.title {
+    color: rgb(255, 255, 255);
+    font-weight: bolder;
+}
+
+.text {
+    color: rgb(221, 221, 221);
+}

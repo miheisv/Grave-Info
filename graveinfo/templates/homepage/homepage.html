@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+{{ block.super }}
+{% endblock %}
+
+{% block content %}
+<script type="text/javascript">
+  // Функция ymaps.ready() будет вызвана, когда
+  // загрузятся все компоненты API, а также когда будет готово DOM-дерево.
+  ymaps.ready(init);
+  function init(){
+      // Создание карты.
+      var myMap = new ymaps.Map("map", {
+          // Координаты центра карты.
+          // Порядок по умолчанию: «широта, долгота».
+          // Чтобы не определять координаты центра карты вручную,
+          // воспользуйтесь инструментом Определение координат.
+          center: [55.76, 37.64],
+          // Уровень масштабирования. Допустимые значения:
+          // от 0 (весь мир) до 19.
+          zoom: 7
+      });
+  }
+  </script>
+
+  <div class="row">
+  {% for human in humans %}
+    <div class="col-lg-6 d-flex align-items-stretch">
+      <div class="card border-dark mb-3 justify-content" style="margin-left: 1rem;">
+        <img src="/media/{{human.get_img}}" style="max-width: 150px; float: left">
+        <div class="card-body text-dark">
+          <h5 class="card-title">{{human.first_name}} {{human.last_name}} - {{human.born}}</h5>
+          <p class="card-text">Дата смерти: {{human.death}}, {{human.age}} год</p>
+          <p class="card-text">{{human.description}}</p>
+        </div>
+      </div>
+    </div>
+      <div class="col-lg-6 d-flex align-items-stretch">
+          <!--CARD HERE-->
+      </div>
+  {% endfor %}
+  </div>
+  
+  <div class="position-sticky" style="top: 2rem;">
+    <div class="p-4 mb-3 bg-light rounded">
+      <h4 class="fst-italic">About</h4>
+      <p class="mb-0">Customize this section to tell your visitors a little bit about your publication, writers, content, or something else entirely. Totally up to you.</p>
+    </div>
+    <div id="map" style="width: 600px; height: 400px"></div>
+  </div>
+
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      {% if page_obj.has_previous %}
+      <li class="page-item">
+        <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      {% endif %}
+      {% if page_obj.has_next %}
+      <li class="page-item">
+        <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+      {% endif %}
+    </ul>
+  </nav>
+{% endblock %}
