@@ -44,6 +44,14 @@ class Human(models.Model):
     death = models.DateTimeField(
         'дата смерти'
     )
+    NS = models.FloatField(
+        'широта',
+        default=0.0,
+    )
+    WE = models.FloatField(
+        'долгота',
+        default=0.0,
+    )
 
     objects = HumanManager()
 

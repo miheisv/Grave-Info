@@ -7,42 +7,33 @@
 
 
 {% block content %}
-  <div
-    id="intro-example"
-    class="intro-example text-center justify-content-center bg-image"
-    style="
-      background-image: url(/media/{{post.main_picture}});
-      background-size: cover;
-      height: 400px;
-    "
-  >
-    <div class="mask" style="background-color: rgba(0, 0, 0, 0.6); min-height: 400px;">
-      <div class="d-flex justify-content-center align-items-center h-100" style="padding-top: 10rem;">
-        <div class="text-white">
-          <h1 class="mb-3" style="font-size: 80px">{{ post.title }}</h1>
-        </div>     
-      </div>
-        <div class="d-flex text-white justify-content-center" style="padding-top: 6rem;">
-          <h6>
-            {% for tag in post.tags.all %}
-            <div style="padding-right: 1.5rem; float: left;">
-              {{ tag }}
-            </div>
-            {% endfor %}
-          </h6>
-        </div>
+<script type="text/javascript">
+  // Функция ymaps.ready() будет вызвана, когда
+  // загрузятся все компоненты API, а также когда будет готово DOM-дерево.
+  ymaps.ready(init);
+  function init(){
+      // Создание карты.
+      var myMap = new ymaps.Map("map", {
+          // Координаты центра карты.
+          // Порядок по умолчанию: «широта, долгота».
+          // Чтобы не определять координаты центра карты вручную,
+          // воспользуйтесь инструментом Определение координат.
+          center: [{{human.NS}}, {{human.WE}}],
+          // Уровень масштабирования. Допустимые значения:
+          // от 0 (весь мир) до 19.
+          zoom: 18
+      });
+      var myPlacemark = new ymaps.Placemark([{{human.NS}}, {{human.WE}}]);
+      myMap.geoObjects.add(myPlacemark);
+  }
+  </script>
+  <div class="card border-dark mb-3" style="margin-left: 30%; margin-right: 30%">
+    <div class="card-body text-dark">
+      <img src="/media/{{human.get_img}}" align="left" style="max-width: 150px; margin-right: 3rem;">        
+      <h2 class="card-title">{{human.first_name}} {{human.last_name}} - {{human.born}}</h2>
+      <h3 class="card-text">Дата смерти: {{human.death}}, {{human.age}} год</h3>
+      <h4 class="card-text">{{human.description}}</h4>
     </div>
   </div>
-  <div
-    class="d-flex justify-content-center min-vh-100 sticky-top"
-    style="background-image: url({% static "img/post_background.png" %}); background-size: cover; background-attachment: fixed;"
-    >
-    <div class="col-lg-10 mx-auto p-3 py-md-5" style="overflow: hidden; background-color: rgba(0, 0, 0, 0.3);">
-      <font color="white">
-      <div class="fs-5" >
-        {{ post.text | safe}}
-      </div>
-    </font>
-    </div>
-  </div>
+  <div id="map" style="width: 600px; height: 400px; margin-left: 30%; min-width: 40%"></div>
 {% endblock content %}

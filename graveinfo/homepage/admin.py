@@ -12,4 +12,6 @@ class HumanAdmin(admin.ModelAdmin):
         'description',
         'born',
         'death',
+        'NS',
+        'WE',
     )
