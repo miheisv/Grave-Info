@@ -27,13 +27,23 @@
       myMap.geoObjects.add(myPlacemark);
   }
   </script>
-  <div class="card border-dark mb-3" style="margin-left: 30%; margin-right: 30%">
-    <div class="card-body text-dark">
-      <img src="/media/{{human.get_img}}" align="left" style="max-width: 150px; margin-right: 3rem;">        
-      <h2 class="card-title">{{human.first_name}} {{human.last_name}} - {{human.born}}</h2>
-      <h3 class="card-text">Дата смерти: {{human.death}}, {{human.age}} год</h3>
-      <h4 class="card-text">{{human.description}}</h4>
+  <div class="col-lg-7 align-items-stretch" style="float: left">
+    <div class="card border-dark mb-3" style="margin-left: 1rem;">
+      <div class="card-body text-dark" style="background-color: #FFF8EA">
+        <div class="row">
+          <div class="col-lg-2">
+            <img src="/media/{{human.get_img}}" align="left" style="max-width: 150px;">
+          </div>
+          <div class="col-lg-10" style="padding-left: 5rem;">
+            <h2 class="card-title">{{human.first_name}} {{human.last_name}} - {{human.born}}</h2>
+            <h3 class="card-text">Дата смерти: {{human.death}}, возраст - {{human.age}}</h3>
+          </div>
+          <h4 class="card-text" style="margin-top: 3rem">{{human.description}}</h4>
+        </div>
+      </div>
     </div>
   </div>
-  <div id="map" style="width: 600px; height: 400px; margin-left: 30%; min-width: 40%"></div>
+  <div class="col-lg-5 d-flex">
+    <div id="map" style="width: 600px; height: 400px; margin-left: 15%; min-width: 40%"></div>
+  </div>  
 {% endblock content %}

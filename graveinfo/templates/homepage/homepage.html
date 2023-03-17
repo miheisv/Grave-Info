@@ -9,17 +9,23 @@
 
   <div class="row">
   {% for human in humans %}
-    <div class="col-lg-6 d-flex align-items-stretch">
-      <div class="card border-dark mb-3 justify-content" style="margin-left: 1rem;">
-        <div class="card-body text-dark">
-          <img src="/media/{{human.get_img}}" align="left" style="max-width: 150px; margin-right: 3rem;">        
-          <h2 class="card-title">{{human.first_name}} {{human.last_name}} - {{human.born}}</h2>
-          <h3 class="card-text">Дата смерти: {{human.death}}, {{human.age}} год</h3>
-        
-          <h4 class="card-text">{{human.description}}<br><a href="{% url "homepage:human" human.pk %}">Узнать место захоронения...</a></h4>
+    <div class="col-lg-8 align-items-stretch">
+      <div class="card border-dark mb-3" style="margin-left: 1rem;">
+        <div class="card-body text-dark" style="background-color: #FFF8EA">
+          <div class="row">
+            <div class="col-lg-2">
+              <img src="/media/{{human.get_img}}" align="left" style="max-width: 150px; margin-right: 3rem;">
+            </div>
+            <div class="col-lg-10">
+              <h2 class="card-title">{{human.first_name}} {{human.last_name}} - {{human.born}}</h2>
+              <h3 class="card-text">Дата смерти: {{human.death}}, возраст - {{human.age}}</h3>
+              <h4 class="card-text"><a href="{% url "homepage:human" human.pk %}">Узнать место захоронения...</a></h4>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+    <div class="col-lg-4 d-flex"></div>
   {% endfor %}
   </div>
 

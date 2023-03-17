@@ -1,6 +1,7 @@
 from django.db import models
 from sorl.thumbnail import get_thumbnail
 from PIL import Image
+from graveinfo.settings import STATIC_ROOT, STATIC_URL
 
 
 class HumanManager(models.Manager):
@@ -64,6 +65,11 @@ class Human(models.Model):
 
     @property
     def get_img(self):
+        if not self.main_picture:
+            try:
+                self.main_picture = f'default.jpg'
+            except FileNotFoundError:
+                print('Файла стандартной иконки нет в директрории MEDIA. Добавьте файл изображения в директорию media/')
         if self.crop_img:
             return self.main_picture
         self.crop_img = Image.open(f'./media/{self.main_picture}').resize((150, 150))
